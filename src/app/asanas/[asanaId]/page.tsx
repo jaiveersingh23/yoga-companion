@@ -38,23 +38,19 @@ export default function AsanaDetailPage({ params }: AsanaDetailPageProps) {
       <PageHeader title={asana.name} description={asana.sanskritName} />
 
       <Card className="mb-8 shadow-lg overflow-hidden">
-        {videoId && asana.videoUrl ? (
-          <a 
-            href={asana.videoUrl} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="block w-full h-64 md:h-96 rounded-t-lg overflow-hidden group"
-            aria-label={`Watch video tutorial for ${asana.name} on YouTube`}
-          >
-            <Image
-              src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
-              alt={`Video thumbnail for ${asana.name}`}
-              width={600}
-              height={400}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              unoptimized
-            />
-          </a>
+        {videoId ? (
+          <div className="w-full aspect-video rounded-t-lg overflow-hidden">
+            <iframe
+              width="100%"
+              height="100%"
+              src={`https://www.youtube.com/embed/${videoId}`}
+              title={`YouTube video player for ${asana.name}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="w-full h-full"
+            ></iframe>
+          </div>
         ) : asana.imageUrl ? (
           <div className="w-full h-64 md:h-96 overflow-hidden">
             <Image
@@ -79,7 +75,7 @@ export default function AsanaDetailPage({ params }: AsanaDetailPageProps) {
             <div className="mb-6">
               <Button asChild variant="outline" className="bg-red-600 hover:bg-red-700 text-white">
                 <a href={asana.videoUrl} target="_blank" rel="noopener noreferrer">
-                  <Youtube className="mr-2 h-5 w-5" /> Watch Video Tutorial
+                  <Youtube className="mr-2 h-5 w-5" /> Watch on YouTube
                 </a>
               </Button>
             </div>
