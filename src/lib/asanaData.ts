@@ -17,7 +17,7 @@ export const asanas: Asana[] = [
       'Lengthen your neck, keeping your gaze soft and straight ahead.',
       'Breathe deeply and evenly.',
     ],
-    imageUrl: 'https://source.unsplash.com/random/600x400/?yoga', // Simplified URL
+    imageUrl: 'https://source.unsplash.com/random/600x400/?yoga',
     imageHint: 'mountain pose',
     benefits: ['Improves posture', 'Strengthens thighs, knees, and ankles', 'Firms abdomen and buttocks', 'Relieves sciatica', 'Reduces flat feet'],
     contraindications: ['Headache', 'Insomnia', 'Low blood pressure (if holding for long periods)'],
@@ -63,6 +63,7 @@ export const asanas: Asana[] = [
     ],
     imageUrl: `https://source.unsplash.com/featured/600x400/?triangle,pose`,
     imageHint: 'triangle pose',
+    videoUrl: 'https://www.youtube.com/watch?v=S6gB0QHbWFE', // Example video
     benefits: ['Stretches hips, groins, hamstrings, calves, shoulders, chest, and spine', 'Strengthens legs and core', 'Stimulates abdominal organs', 'Helps relieve stress', 'Improves digestion', 'Helps relieve symptoms of menopause', 'Relieves backache, especially through second trimester of pregnancy', 'Therapeutic for anxiety, flat feet, infertility, neck pain, osteoporosis, and sciatica'],
     contraindications: ['Headache', 'Diarrhea', 'Low blood pressure', 'High blood pressure (turn head to gaze downward in final pose)', 'Neck problems (don’t turn head to look upward; keep looking straight ahead or down)'],
     category: 'Standing',
@@ -104,6 +105,7 @@ export const asanas: Asana[] = [
     ],
     imageUrl: `https://source.unsplash.com/featured/600x400/?warrior,two`,
     imageHint: 'warrior two',
+    videoUrl: 'https://www.youtube.com/watch?v=0hS0DR3W5bY',
     benefits: [
       'Strengthens and stretches the legs and ankles',
       'Opens the hips and chest',

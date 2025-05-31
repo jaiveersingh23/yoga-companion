@@ -8,10 +8,11 @@ import PageHeader from '@/components/shared/PageHeader';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Play, Pause, RotateCcw, Info, CheckCircle2, AlertTriangle } from 'lucide-react';
+import { Play, Pause, RotateCcw, Info, CheckCircle2, AlertTriangle, Youtube } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
+import { getYouTubeVideoId } from '@/lib/utils';
 
 
 interface PranayamaGuidePageProps {
@@ -32,11 +33,18 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
   const [phaseTimeLeft, setPhaseTimeLeft] = useState(0);
   const [roundCount, setRoundCount] = useState(0);
 
+  const videoId = technique?.videoUrl ? getYouTubeVideoId(technique.videoUrl) : null;
+
   useEffect(() => {
     if (technique) {
       setTimeLeft(duration * 60);
+      // Reset timer if technique changes (e.g., navigating directly between pranayama pages)
+      setIsRunning(false);
+      setCurrentPhase('idle');
+      setPhaseTimeLeft(0);
+      setRoundCount(0);
     }
-  }, [duration, technique]);
+  }, [duration, technique, resolvedParams.pranayamaId]);
   
   const isRunningRef = React.useRef(isRunning);
   useEffect(() => {
@@ -73,7 +81,7 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
     let phaseTimeoutId: NodeJS.Timeout | undefined = undefined;
 
     const cyclePhases = () => {
-      if (!isRunningRef.current) { // Check ref before proceeding
+      if (!isRunningRef.current) { 
         clearTimers();
         return;
       }
@@ -117,7 +125,7 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
     };
     
     const phaseTimer = () => {
-        setPhaseTimeLeft(prev => (prev <= 0 ? 0 : prev-1)); // Ensure it doesn't go below 0
+        setPhaseTimeLeft(prev => (prev <= 0 ? 0 : prev-1));
     }
 
     if (isRunning) {
@@ -133,7 +141,7 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
       clearTimers();
       if(phaseTimeoutId) clearTimeout(phaseTimeoutId);
     };
-  }, [isRunning, technique, roundCount, currentPhase, duration, toast]); // Added duration and toast to dependency array
+  }, [isRunning, technique, roundCount, currentPhase, duration, toast]);
 
 
   if (!technique) {
@@ -155,7 +163,7 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
 
   const toggleTimer = () => setIsRunning(!isRunning);
   const resetTimer = () => {
-    setIsRunning(false); // This will trigger the cleanup in useEffect
+    setIsRunning(false); 
     setTimeLeft(duration * 60);
     setCurrentPhase('idle');
     setPhaseTimeLeft(0);
@@ -181,20 +189,20 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
     else if (currentPhase === 'exhale') totalDurationCurrentPhase = exhale;
     else if (currentPhase === 'holdExhale') totalDurationCurrentPhase = holdExhale;
 
-    if (totalDurationCurrentPhase === 0) return 100; // Default size if phase duration is 0
+    if (totalDurationCurrentPhase === 0) return 100;
 
     const progress = (totalDurationCurrentPhase - phaseTimeLeft) / totalDurationCurrentPhase;
 
-    if (currentPhase === 'inhale') { // Expand during inhale
+    if (currentPhase === 'inhale') {
       return 100 + progress * 50; 
-    } else if (currentPhase === 'holdInhale') { // Stay expanded during hold after inhale
+    } else if (currentPhase === 'holdInhale') {
       return 150;
-    } else if (currentPhase === 'exhale') { // Shrink during exhale
+    } else if (currentPhase === 'exhale') {
       return 150 - progress * 50;
-    } else if (currentPhase === 'holdExhale') { // Stay shrunk during hold after exhale
+    } else if (currentPhase === 'holdExhale') {
       return 100;
     }
-    return 100; // Default
+    return 100;
   }
   const circleSize = calculateCircleSize();
 
@@ -203,18 +211,48 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
     <div className="max-w-3xl mx-auto">
       <PageHeader title={technique.name} description={technique.sanskritName} />
       
-      {technique.imageUrl && (
-        <div className="w-full h-64 rounded-lg overflow-hidden mb-8 shadow-md">
-          <Image 
-            src={technique.imageUrl} 
-            alt={technique.name} 
-            width={600}
-            height={400}
-            className="w-full h-full object-cover"
-            unoptimized={true}
-          />
+      <div className="mb-8">
+        {videoId && technique.videoUrl ? (
+            <a 
+              href={technique.videoUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="block w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-md group"
+              aria-label={`Watch video tutorial for ${technique.name} on YouTube`}
+            >
+                <Image
+                src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+                alt={`Video thumbnail for ${technique.name}`}
+                width={600}
+                height={400}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                unoptimized
+                />
+            </a>
+        ) : technique.imageUrl ? (
+            <div className="w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
+                <Image 
+                    src={technique.imageUrl} 
+                    alt={technique.name} 
+                    width={600}
+                    height={400}
+                    className="w-full h-full object-cover"
+                    unoptimized
+                />
+            </div>
+        ) : null}
+      </div>
+      
+      {technique.videoUrl && (
+        <div className="mb-6 text-center">
+          <Button asChild variant="outline" className="bg-red-600 hover:bg-red-700 text-white">
+            <a href={technique.videoUrl} target="_blank" rel="noopener noreferrer">
+              <Youtube className="mr-2 h-5 w-5" /> Watch Video Tutorial
+            </a>
+          </Button>
         </div>
       )}
+
 
       <Card className="mb-8 shadow-lg">
         <CardHeader>
@@ -243,7 +281,6 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
               value={duration.toString()}
               onValueChange={(value) => {
                 setDuration(Number(value));
-                resetTimer(); // Reset timer when duration changes
               }}
               disabled={isRunning}
             >
@@ -314,5 +351,3 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
     </div>
   );
 }
-
-    

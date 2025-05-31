@@ -5,10 +5,10 @@ import type { Asana } from '@/lib/types';
 import PageHeader from '@/components/shared/PageHeader';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
+import { Button } from '@/components/ui/button';
 import { AlertCircle, CheckCircle2, Youtube } from 'lucide-react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { getYouTubeVideoId } from '@/lib/utils';
 
 interface AsanaDetailPageProps {
   params: {
@@ -31,21 +31,42 @@ export default function AsanaDetailPage({ params }: AsanaDetailPageProps) {
     );
   }
 
+  const videoId = asana.videoUrl ? getYouTubeVideoId(asana.videoUrl) : null;
+
   return (
     <div className="max-w-4xl mx-auto">
       <PageHeader title={asana.name} description={asana.sanskritName} />
 
       <Card className="mb-8 shadow-lg overflow-hidden">
-        <div className="w-full h-64 md:h-96 overflow-hidden">
-          <Image
-            src={asana.imageUrl}
-            alt={asana.name}
-            width={600}
-            height={400}
-            className="w-full h-full object-cover"
-            unoptimized={true}
-          />
-        </div>
+        {videoId && asana.videoUrl ? (
+          <a 
+            href={asana.videoUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="block w-full h-64 md:h-96 rounded-t-lg overflow-hidden group"
+            aria-label={`Watch video tutorial for ${asana.name} on YouTube`}
+          >
+            <Image
+              src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+              alt={`Video thumbnail for ${asana.name}`}
+              width={600}
+              height={400}
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              unoptimized
+            />
+          </a>
+        ) : asana.imageUrl ? (
+          <div className="w-full h-64 md:h-96 overflow-hidden">
+            <Image
+              src={asana.imageUrl}
+              alt={asana.name}
+              width={600}
+              height={400}
+              className="w-full h-full object-cover"
+              unoptimized
+            />
+          </div>
+        ) : null}
         <CardContent className="p-6">
           <p className="text-lg text-muted-foreground mb-6">{asana.description}</p>
           
@@ -124,11 +145,8 @@ export default function AsanaDetailPage({ params }: AsanaDetailPageProps) {
 }
 
 export async function generateStaticParams() {
-  // In a real app, fetch this from a CMS or database
   const localAsanas = (await import('@/lib/asanaData')).asanas;
   return localAsanas.map((asana: Asana) => ({
     asanaId: asana.id,
   }));
 }
-
-    

@@ -32,6 +32,7 @@ export interface PranayamaTechnique {
   };
   imageUrl?: string;
   imageHint?: string;
+  videoUrl?: string;
 }
 
 export interface EducationTopic {

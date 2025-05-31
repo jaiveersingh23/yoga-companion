@@ -21,8 +21,9 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     contraindications: [],
     durationOptions: [3, 5, 10],
     breathingPattern: { inhale: 4, exhale: 6, rounds: 10 },
-    imageUrl: `https://source.unsplash.com/featured/600x400/?${'nostril,breathing'}`,
+    imageUrl: `https://source.unsplash.com/featured/600x400/?nostril,breathing`,
     imageHint: 'nostril breathing',
+    videoUrl: 'https://www.youtube.com/watch?v=8VwufJrUhic',
   },
   {
     id: 'ujjayi',
@@ -41,7 +42,7 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     benefits: ['Calms the nervous system', 'Builds internal heat', 'Increases oxygenation', 'Improves focus during asana practice', 'Releases tension'],
     contraindications: [],
     durationOptions: [3, 5, 10],
-    imageUrl: `https://source.unsplash.com/featured/600x400/?${'ujjayi,breath'}`,
+    imageUrl: `https://source.unsplash.com/featured/600x400/?ujjayi,breath`,
     imageHint: 'ujjayi breath',
   },
    {
@@ -61,8 +62,9 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     benefits: ['Instantly calms the mind', 'Relieves stress, anxiety, and anger', 'Reduces blood pressure', 'Improves concentration and memory', 'Helpful for insomnia'],
     contraindications: [],
     durationOptions: [3, 5, 7],
-    imageUrl: `https://source.unsplash.com/featured/600x400/?${'bee,breath'}`,
-    imageHint: 'bee breath',
+    imageUrl: `https://source.unsplash.com/featured/600x400/?bee,sound`, // Changed hint
+    imageHint: 'bee sound',
+    videoUrl: 'https://www.youtube.com/watch?v=j47EpmB-AIM',
   },
   {
     id: 'kapalabhati',
@@ -87,19 +89,19 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
       'Tones abdominal muscles'
     ],
     contraindications: [
-        'High blood pressure', 
-        'Heart conditions', 
-        'Hernia', 
-        'Epilepsy', 
-        'Vertigo', 
-        'Pregnancy', 
-        'Recent abdominal surgery', 
+        'High blood pressure',
+        'Heart conditions',
+        'Hernia',
+        'Epilepsy',
+        'Vertigo',
+        'Pregnancy',
+        'Recent abdominal surgery',
         'During menstruation (practice mildly if at all)'
     ],
-    durationOptions: [2, 3, 5], 
-    breathingPattern: { exhale: 1, rounds: 30 }, 
-    imageUrl: `https://source.unsplash.com/featured/600x400/?${'skull,shining'}`,
-    imageHint: 'skull shining',
+    durationOptions: [2, 3, 5],
+    breathingPattern: { exhale: 1, rounds: 30 },
+    imageUrl: `https://source.unsplash.com/featured/600x400/?breath,energy`, // Changed hint
+    imageHint: 'breath energy',
   },
   {
     id: 'sitali',
@@ -123,15 +125,15 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
       'Beneficial for reducing fever and inflammation'
     ],
     contraindications: [
-        'Low blood pressure', 
-        'Respiratory disorders like asthma or bronchitis (cold air may irritate)', 
-        'Chronic constipation', 
+        'Low blood pressure',
+        'Respiratory disorders like asthma or bronchitis (cold air may irritate)',
+        'Chronic constipation',
         'During cold weather or if you have a cold/flu'
     ],
     durationOptions: [3, 5, 7],
     breathingPattern: { inhale: 4, exhale: 6, rounds: 10 },
-    imageUrl: `https://source.unsplash.com/featured/600x400/?${'sitali,breath'}`,
-    imageHint: 'sitali breath',
+    imageUrl: `https://source.unsplash.com/featured/600x400/?cool,breeze`, // Changed hint
+    imageHint: 'cool breeze',
   }
 ];
 
