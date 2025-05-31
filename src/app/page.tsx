@@ -11,24 +11,28 @@ const features = [
     description: 'Let our AI craft a yoga session tailored to your goals and experience level.',
     href: '/routine-generator',
     icon: Wand2,
+    buttonLabel: 'Generate Routine',
   },
   {
     title: 'Explore Asanas',
     description: 'Discover a library of yoga poses with detailed instructions and benefits.',
     href: '/asanas',
     icon: StretchHorizontal,
+    buttonLabel: 'View Asanas',
   },
   {
     title: 'Guided Pranayama',
     description: 'Follow guided breathing exercises to calm your mind and energize your body.',
     href: '/pranayama',
     icon: Wind,
+    buttonLabel: 'Practice Pranayama',
   },
   {
     title: 'Yoga Education',
     description: 'Learn about Mudras, Bandhas, Dhyana, and more to deepen your practice.',
     href: '/education',
     icon: BookOpen,
+    buttonLabel: 'Explore Education',
   },
 ];
 
@@ -56,7 +60,7 @@ export default function HomePage() {
                 <div className="flex-grow mb-4"></div> {/* Spacer to push button down */}
                 <Button asChild className="w-full mt-auto bg-accent hover:bg-accent/90 text-accent-foreground">
                   <Link href={feature.href}>
-                    Explore {feature.title.split(' ')[0]}
+                    {feature.buttonLabel}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
