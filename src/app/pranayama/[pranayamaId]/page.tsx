@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { getPranayamaById } from '@/lib/pranayamaData';
 import type { PranayamaTechnique } from '@/lib/types';
 import PageHeader from '@/components/shared/PageHeader';
@@ -12,13 +12,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 interface PranayamaGuidePageProps {
-  params: {
+  params: Promise<{ // Updated to reflect that params is a Promise
     pranayamaId: string;
-  };
+  }>;
 }
 
 export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) {
-  const technique = getPranayamaById(params.pranayamaId);
+  const resolvedParams = use(params); // Unwrap the params Promise
+  const technique = getPranayamaById(resolvedParams.pranayamaId);
 
   const [duration, setDuration] = useState<number>(technique?.durationOptions[0] || 5);
   const [isRunning, setIsRunning] = useState(false);
