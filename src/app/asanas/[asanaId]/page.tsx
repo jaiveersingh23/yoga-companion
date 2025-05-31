@@ -59,7 +59,7 @@ export default function AsanaDetailPage({ params }: AsanaDetailPageProps) {
               width={600}
               height={400}
               className="w-full h-full object-cover"
-              unoptimized
+              data-ai-hint={asana.imageHint}
             />
           </div>
         ) : null}

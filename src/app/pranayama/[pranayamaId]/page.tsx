@@ -232,7 +232,7 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
                     width={600}
                     height={400}
                     className="w-full h-full object-cover"
-                    unoptimized
+                    data-ai-hint={technique.imageHint}
                 />
             </div>
         ) : null}
