@@ -44,6 +44,7 @@ export default function EducationSectionPage({ params }: EducationSectionPagePro
             height={400}
             className="w-full h-full object-cover"
             data-ai-hint={section.imageHint || 'yoga study'}
+            unoptimized={section.image.startsWith('https://placehold.co') ? undefined : true}
           />
         </div>
       )}
@@ -59,6 +60,7 @@ export default function EducationSectionPage({ params }: EducationSectionPagePro
                     height={400}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={topic.imageHint || 'yoga detail'}
+                    unoptimized={topic.imageUrl.startsWith('https://placehold.co') ? undefined : true}
                 />
                 </div>
             )}
@@ -92,3 +94,5 @@ export async function generateStaticParams() {
     sectionSlug: section.slug,
   }));
 }
+
+    

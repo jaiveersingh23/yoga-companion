@@ -28,6 +28,7 @@ export default function AsanasPage() {
                   width={600}
                   height={400}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  unoptimized={true}
                 />
               </div>
               <CardTitle className="font-headline text-xl">{asana.name}</CardTitle>
@@ -53,3 +54,5 @@ export default function AsanasPage() {
     </div>
   );
 }
+
+    

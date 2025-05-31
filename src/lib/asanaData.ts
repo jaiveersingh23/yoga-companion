@@ -17,7 +17,7 @@ export const asanas: Asana[] = [
       'Lengthen your neck, keeping your gaze soft and straight ahead.',
       'Breathe deeply and evenly.',
     ],
-    imageUrl: `https://source.unsplash.com/featured/600x400/?${'mountain,pose'}`,
+    imageUrl: 'https://source.unsplash.com/random/600x400?yoga',
     imageHint: 'mountain pose',
     benefits: ['Improves posture', 'Strengthens thighs, knees, and ankles', 'Firms abdomen and buttocks', 'Relieves sciatica', 'Reduces flat feet'],
     contraindications: ['Headache', 'Insomnia', 'Low blood pressure (if holding for long periods)'],
@@ -38,9 +38,9 @@ export const asanas: Asana[] = [
       'Let your head hang heavy, and gaze towards your navel or between your feet.',
       'Keep your core engaged to support your spine.',
     ],
-    imageUrl: `https://source.unsplash.com/featured/600x400/?${'downward,dog'}`,
+    imageUrl: `https://source.unsplash.com/featured/600x400/?downward,dog`,
     imageHint: 'downward dog',
-    videoUrl: 'https://www.youtube.com/watch?v=j6y2C3iI_iE', // Example video
+    videoUrl: 'https://www.youtube.com/watch?v=j6y2C3iI_iE', 
     benefits: ['Calms the brain and helps relieve stress and mild depression', 'Energizes the body', 'Stretches the shoulders, hamstrings, calves, arches, and hands', 'Strengthens the arms and legs', 'Helps relieve the symptoms of menopause', 'Relieves menstrual discomfort when done with head supported', 'Helps prevent osteoporosis', 'Improves digestion', 'Relieves headache, insomnia, back pain, and fatigue'],
     contraindications: ['Carpal tunnel syndrome', 'High blood pressure or headache (support head on a bolster or block)', 'Late-term pregnancy'],
     category: 'Inversion',
@@ -61,7 +61,7 @@ export const asanas: Asana[] = [
       'Turn your gaze towards your left hand, if comfortable for your neck.',
       'Hold for several breaths, then repeat on the other side.',
     ],
-    imageUrl: `https://source.unsplash.com/featured/600x400/?${'triangle,pose'}`,
+    imageUrl: `https://source.unsplash.com/featured/600x400/?triangle,pose`,
     imageHint: 'triangle pose',
     benefits: ['Stretches hips, groins, hamstrings, calves, shoulders, chest, and spine', 'Strengthens legs and core', 'Stimulates abdominal organs', 'Helps relieve stress', 'Improves digestion', 'Helps relieve symptoms of menopause', 'Relieves backache, especially through second trimester of pregnancy', 'Therapeutic for anxiety, flat feet, infertility, neck pain, osteoporosis, and sciatica'],
     contraindications: ['Headache', 'Diarrhea', 'Low blood pressure', 'High blood pressure (turn head to gaze downward in final pose)', 'Neck problems (don’t turn head to look upward; keep looking straight ahead or down)'],
@@ -81,7 +81,7 @@ export const asanas: Asana[] = [
       'Breathe naturally and allow your mind to be still.',
       'Stay in Savasana for 5-15 minutes.',
     ],
-    imageUrl: `https://source.unsplash.com/featured/600x400/?${'savasana,relax'}`,
+    imageUrl: `https://source.unsplash.com/featured/600x400/?savasana,relax`,
     imageHint: 'savasana relax',
     benefits: ['Calms the brain and helps relieve stress and mild depression', 'Relaxes the body', 'Reduces headache, fatigue, and insomnia', 'Helps to lower blood pressure', 'Allows for deep rest and rejuvenation'],
     category: 'Restorative',
@@ -102,7 +102,7 @@ export const asanas: Asana[] = [
       'Keep your torso upright and shoulders relaxed.', 
       'Hold for 30 seconds to a minute. To release, straighten your right leg and switch sides.'
     ],
-    imageUrl: `https://source.unsplash.com/featured/600x400/?${'warrior,two'}`,
+    imageUrl: `https://source.unsplash.com/featured/600x400/?warrior,two`,
     imageHint: 'warrior two',
     benefits: [
       'Strengthens and stretches the legs and ankles', 
@@ -132,7 +132,7 @@ export const asanas: Asana[] = [
       'Keep your standing leg strong and engaged.', 
       'Hold for several breaths, then gently release and repeat on the other side.'
     ],
-    imageUrl: `https://source.unsplash.com/featured/600x400/?${'tree,pose'}`,
+    imageUrl: `https://source.unsplash.com/featured/600x400/?tree,pose`,
     imageHint: 'tree pose',
     benefits: [
       'Strengthens thighs, calves, ankles, and spine', 
@@ -165,7 +165,7 @@ export const asanas: Asana[] = [
       'Gaze slightly upward or straight ahead, avoiding crunching the neck.', 
       'Hold for 15 to 30 seconds, breathing easily. Exhale to release back to the floor.'
     ],
-    imageUrl: `https://source.unsplash.com/featured/600x400/?${'cobra,pose'}`,
+    imageUrl: `https://source.unsplash.com/featured/600x400/?cobra,pose`,
     imageHint: 'cobra pose',
     benefits: [
       'Strengthens the spine', 
@@ -191,3 +191,5 @@ export const asanas: Asana[] = [
 export const getAsanaById = (id: string): Asana | undefined => {
   return asanas.find(asana => asana.id === id);
 };
+
+    

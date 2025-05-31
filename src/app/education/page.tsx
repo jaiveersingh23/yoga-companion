@@ -28,6 +28,7 @@ export default function EducationPage() {
                     height={400}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={section.imageHint || 'yoga philosophy'}
+                    unoptimized={section.image.startsWith('https://placehold.co') ? undefined : true}
                 />
                 </div>
             )}
@@ -53,3 +54,5 @@ export default function EducationPage() {
     </div>
   );
 }
+
+    

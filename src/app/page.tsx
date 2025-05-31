@@ -12,7 +12,7 @@ const features = [
     description: 'Let our AI craft a yoga session tailored to your goals and experience level.',
     href: '/routine-generator',
     icon: Wand2,
-    image: 'https://source.unsplash.com/600x400/?yoga,meditation',
+    image: 'https://source.unsplash.com/featured/600x400/?yoga,meditation',
     imageHint: 'yoga meditation',
   },
   {
@@ -20,7 +20,7 @@ const features = [
     description: 'Discover a library of yoga poses with detailed instructions and benefits.',
     href: '/asanas',
     icon: StretchHorizontal,
-    image: 'https://source.unsplash.com/600x400/?yoga,pose',
+    image: 'https://source.unsplash.com/featured/600x400/?yoga,pose',
     imageHint: 'yoga pose',
   },
   {
@@ -28,7 +28,7 @@ const features = [
     description: 'Follow guided breathing exercises to calm your mind and energize your body.',
     href: '/pranayama',
     icon: Wind,
-    image: 'https://source.unsplash.com/600x400/?breathing,nature',
+    image: 'https://source.unsplash.com/featured/600x400/?breathing,nature',
     imageHint: 'breathing nature',
   },
   {
@@ -36,7 +36,7 @@ const features = [
     description: 'Learn about Mudras, Bandhas, Dhyana, and more to deepen your practice.',
     href: '/education',
     icon: BookOpen,
-    image: 'https://source.unsplash.com/600x400/?ancient,scroll',
+    image: 'https://source.unsplash.com/featured/600x400/?ancient,scroll',
     imageHint: 'ancient scroll',
   },
 ];
@@ -70,6 +70,7 @@ export default function HomePage() {
                     height={400}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={feature.imageHint}
+                    unoptimized={true}
                   />
                 </div>
                 <Button asChild className="w-full mt-auto bg-accent hover:bg-accent/90 text-accent-foreground">
@@ -86,3 +87,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+    

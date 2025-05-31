@@ -44,6 +44,7 @@ export default function EducationTopicPage({ params }: EducationTopicPageProps) 
               height={400}
               className="w-full h-full object-cover"
               data-ai-hint={topic.imageHint || 'yoga knowledge'}
+              unoptimized={topic.imageUrl.startsWith('https://placehold.co') ? undefined : true}
             />
           </div>
         )}
@@ -100,3 +101,5 @@ export async function generateStaticParams() {
   });
   return params;
 }
+
+    

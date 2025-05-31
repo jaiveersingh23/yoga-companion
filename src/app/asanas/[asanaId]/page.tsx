@@ -43,6 +43,7 @@ export default function AsanaDetailPage({ params }: AsanaDetailPageProps) {
             width={600}
             height={400}
             className="w-full h-full object-cover"
+            unoptimized={true}
           />
         </div>
         <CardContent className="p-6">
@@ -129,3 +130,5 @@ export async function generateStaticParams() {
     asanaId: asana.id,
   }));
 }
+
+    
