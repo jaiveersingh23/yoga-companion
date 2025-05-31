@@ -18,7 +18,7 @@ export const asanas: Asana[] = [
       'Breathe deeply and evenly.',
     ],
     imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'mountain pose yoga',
+    imageHint: 'mountain pose',
     benefits: ['Improves posture', 'Strengthens thighs, knees, and ankles', 'Firms abdomen and buttocks', 'Relieves sciatica', 'Reduces flat feet'],
     contraindications: ['Headache', 'Insomnia', 'Low blood pressure (if holding for long periods)'],
     category: 'Standing',
@@ -39,7 +39,7 @@ export const asanas: Asana[] = [
       'Keep your core engaged to support your spine.',
     ],
     imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'downward dog yoga',
+    imageHint: 'downward dog',
     videoUrl: 'https://www.youtube.com/watch?v=j6y2C3iI_iE', // Example video
     benefits: ['Calms the brain and helps relieve stress and mild depression', 'Energizes the body', 'Stretches the shoulders, hamstrings, calves, arches, and hands', 'Strengthens the arms and legs', 'Helps relieve the symptoms of menopause', 'Relieves menstrual discomfort when done with head supported', 'Helps prevent osteoporosis', 'Improves digestion', 'Relieves headache, insomnia, back pain, and fatigue'],
     contraindications: ['Carpal tunnel syndrome', 'High blood pressure or headache (support head on a bolster or block)', 'Late-term pregnancy'],
@@ -62,7 +62,7 @@ export const asanas: Asana[] = [
       'Hold for several breaths, then repeat on the other side.',
     ],
     imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'triangle pose yoga',
+    imageHint: 'triangle pose',
     benefits: ['Stretches hips, groins, hamstrings, calves, shoulders, chest, and spine', 'Strengthens legs and core', 'Stimulates abdominal organs', 'Helps relieve stress', 'Improves digestion', 'Helps relieve symptoms of menopause', 'Relieves backache, especially through second trimester of pregnancy', 'Therapeutic for anxiety, flat feet, infertility, neck pain, osteoporosis, and sciatica'],
     contraindications: ['Headache', 'Diarrhea', 'Low blood pressure', 'High blood pressure (turn head to gaze downward in final pose)', 'Neck problems (don’t turn head to look upward; keep looking straight ahead or down)'],
     category: 'Standing',
@@ -82,7 +82,7 @@ export const asanas: Asana[] = [
       'Stay in Savasana for 5-15 minutes.',
     ],
     imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'corpse pose savasana',
+    imageHint: 'savasana relax',
     benefits: ['Calms the brain and helps relieve stress and mild depression', 'Relaxes the body', 'Reduces headache, fatigue, and insomnia', 'Helps to lower blood pressure', 'Allows for deep rest and rejuvenation'],
     category: 'Restorative',
     level: 'Beginner',
@@ -103,7 +103,7 @@ export const asanas: Asana[] = [
       'Hold for 30 seconds to a minute. To release, straighten your right leg and switch sides.'
     ],
     imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'warrior two yoga',
+    imageHint: 'warrior two',
     benefits: [
       'Strengthens and stretches the legs and ankles', 
       'Opens the hips and chest', 
@@ -133,7 +133,7 @@ export const asanas: Asana[] = [
       'Hold for several breaths, then gently release and repeat on the other side.'
     ],
     imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'tree pose yoga',
+    imageHint: 'tree pose',
     benefits: [
       'Strengthens thighs, calves, ankles, and spine', 
       'Stretches the groins and inner thighs, chest and shoulders', 
@@ -166,7 +166,7 @@ export const asanas: Asana[] = [
       'Hold for 15 to 30 seconds, breathing easily. Exhale to release back to the floor.'
     ],
     imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'cobra pose yoga',
+    imageHint: 'cobra pose',
     benefits: [
       'Strengthens the spine', 
       'Stretches chest and lungs, shoulders, and abdomen', 

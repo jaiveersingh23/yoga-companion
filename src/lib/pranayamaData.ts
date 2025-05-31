@@ -21,7 +21,7 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     durationOptions: [3, 5, 10],
     breathingPattern: { inhale: 4, exhale: 6, rounds: 10 }, // Example: 4 count inhale, 6 count exhale
     imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'pranayama breathing yoga',
+    imageHint: 'nostril breathing',
   },
   {
     id: 'ujjayi',
@@ -40,7 +40,7 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     benefits: ['Calms the nervous system', 'Builds internal heat', 'Increases oxygenation', 'Improves focus during asana practice', 'Releases tension'],
     durationOptions: [3, 5, 10],
     imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'ujjayi breath meditation',
+    imageHint: 'ujjayi breath',
   },
    {
     id: 'bhramari',
@@ -59,7 +59,7 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     benefits: ['Instantly calms the mind', 'Relieves stress, anxiety, and anger', 'Reduces blood pressure', 'Improves concentration and memory', 'Helpful for insomnia'],
     durationOptions: [3, 5, 7],
     imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'bee breath yoga sound',
+    imageHint: 'bee breath',
   },
   {
     id: 'kapalabhati',
@@ -96,7 +96,7 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     durationOptions: [2, 3, 5], // Duration per session
     breathingPattern: { exhale: 1, rounds: 30 }, // Represents rapid exhalations, passive inhale not counted here.
     imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'kapalabhati breath energy'
+    imageHint: 'skull shining',
   },
   {
     id: 'sitali',
@@ -128,7 +128,7 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     durationOptions: [3, 5, 7],
     breathingPattern: { inhale: 4, exhale: 6, rounds: 10 },
     imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'sitali breath cool'
+    imageHint: 'sitali breath',
   }
 ];
 
