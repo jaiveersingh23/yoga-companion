@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { getEducationSectionBySlug, educationSections } from '@/lib/educationData';
@@ -47,7 +48,7 @@ export default function EducationSectionPage({ params }: EducationSectionPagePro
       )}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {section.topics.map((topic: EducationTopic) => (
-          <Card key={topic.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Card key={topic.id} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
             {topic.imageUrl && (
                 <div className="relative w-full h-48">
                 <Image

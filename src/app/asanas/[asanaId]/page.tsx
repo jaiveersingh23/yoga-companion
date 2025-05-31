@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { getAsanaById } from '@/lib/asanaData';
 import type { Asana } from '@/lib/types';
@@ -41,7 +42,7 @@ export default function AsanaDetailPage({ params }: AsanaDetailPageProps) {
             alt={asana.name}
             layout="fill"
             objectFit="cover"
-            data-ai-hint={asana.imageHint}
+            
           />
         </div>
         <CardContent className="p-6">

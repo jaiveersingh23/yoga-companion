@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { educationSections } from '@/lib/educationData';
@@ -17,7 +18,7 @@ export default function EducationPage() {
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {educationSections.map((section: EducationSection) => (
-          <Card key={section.slug} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Card key={section.slug} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
             {section.image && (
                 <div className="relative w-full h-48">
                 <Image

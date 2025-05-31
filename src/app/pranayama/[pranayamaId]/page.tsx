@@ -1,3 +1,4 @@
+
 'use client';
 
 import { use, useEffect, useState } from 'react';
@@ -156,7 +157,7 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
       
       {technique.imageUrl && (
         <div className="relative w-full h-64 rounded-lg overflow-hidden mb-8 shadow-md">
-          <Image src={technique.imageUrl} alt={technique.name} layout="fill" objectFit="cover" data-ai-hint={technique.imageHint || 'meditation nature'} />
+          <Image src={technique.imageUrl} alt={technique.name} layout="fill" objectFit="cover"  />
         </div>
       )}
 

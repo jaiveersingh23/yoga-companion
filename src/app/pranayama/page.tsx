@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { pranayamaTechniques } from '@/lib/pranayamaData';
@@ -17,7 +18,7 @@ export default function PranayamaPage() {
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {pranayamaTechniques.map((technique: PranayamaTechnique) => (
-          <Card key={technique.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Card key={technique.id} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
              {technique.imageUrl && (
               <div className="relative w-full h-48">
                 <Image
@@ -25,7 +26,7 @@ export default function PranayamaPage() {
                   alt={technique.name}
                   layout="fill"
                   objectFit="cover"
-                  data-ai-hint={technique.imageHint || 'breathing meditation'}
+                  
                   className="transition-transform duration-300 group-hover:scale-105"
                 />
               </div>

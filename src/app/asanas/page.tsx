@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { asanas } from '@/lib/asanaData';
@@ -18,7 +19,7 @@ export default function AsanasPage() {
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {asanas.map((asana: Asana) => (
-          <Card key={asana.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <Card key={asana.id} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
             <CardHeader>
               <div className="relative w-full h-48 mb-4 rounded-md overflow-hidden">
                 <Image
@@ -26,7 +27,7 @@ export default function AsanasPage() {
                   alt={asana.name}
                   layout="fill"
                   objectFit="cover"
-                  data-ai-hint={asana.imageHint}
+                  
                   className="transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
