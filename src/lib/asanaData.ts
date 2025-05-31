@@ -1,3 +1,4 @@
+
 import type { Asana } from './types';
 
 export const asanas: Asana[] = [
@@ -84,6 +85,105 @@ export const asanas: Asana[] = [
     imageHint: 'corpse pose savasana',
     benefits: ['Calms the brain and helps relieve stress and mild depression', 'Relaxes the body', 'Reduces headache, fatigue, and insomnia', 'Helps to lower blood pressure', 'Allows for deep rest and rejuvenation'],
     category: 'Restorative',
+    level: 'Beginner',
+  },
+  {
+    id: 'virabhadrasana-ii',
+    name: 'Warrior II Pose',
+    sanskritName: 'Virabhadrasana II',
+    description: 'A powerful standing pose that builds strength and stamina in the legs and core, and opens the hips and chest.',
+    instructions: [
+      'Start in Tadasana. Step your feet wide apart, about 4 to 5 feet.', 
+      'Turn your right foot out 90 degrees and your left foot in slightly (about 15 degrees).', 
+      'Align your right heel with your left arch.', 
+      'Bend your right knee over your right ankle, so your shin is perpendicular to the floor. Aim for your right thigh to be parallel to the floor.', 
+      'Extend your arms parallel to the floor, reaching actively out to your sides. Palms facing down.', 
+      'Turn your head to the right and gaze over your right fingertips.', 
+      'Keep your torso upright and shoulders relaxed.', 
+      'Hold for 30 seconds to a minute. To release, straighten your right leg and switch sides.'
+    ],
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'warrior two yoga',
+    benefits: [
+      'Strengthens and stretches the legs and ankles', 
+      'Opens the hips and chest', 
+      'Builds stamina and concentration', 
+      'Relieves backaches, especially during pregnancy (second trimester)', 
+      'Therapeutic for carpal tunnel syndrome, flat feet, infertility, osteoporosis, and sciatica'
+    ],
+    contraindications: [
+      'High blood pressure', 
+      'Neck problems (keep head neutral, don’t turn to gaze over fingertips)'
+    ],
+    category: 'Standing',
+    level: 'Beginner',
+  },
+  {
+    id: 'vrksasana',
+    name: 'Tree Pose',
+    sanskritName: 'Vrksasana',
+    description: 'A balancing pose that improves focus, concentration, and strengthens the legs and core.',
+    instructions: [
+      'Begin in Tadasana.', 
+      'Shift your weight to your left foot. Bend your right knee and place the sole of your right foot on your inner left thigh, avoiding the knee joint.', 
+      'Press your right foot into your thigh and your thigh back into your foot.', 
+      'Bring your hands to your heart center in Anjali Mudra (prayer position), or extend them overhead.', 
+      'Find a non-moving point to gaze at to help with balance.', 
+      'Keep your standing leg strong and engaged.', 
+      'Hold for several breaths, then gently release and repeat on the other side.'
+    ],
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'tree pose yoga',
+    benefits: [
+      'Strengthens thighs, calves, ankles, and spine', 
+      'Stretches the groins and inner thighs, chest and shoulders', 
+      'Improves sense of balance', 
+      'Relieves sciatica and reduces flat feet', 
+      'Calms and focuses the mind'
+    ],
+    contraindications: [
+      'Headache', 
+      'Insomnia', 
+      'Low blood pressure', 
+      'High blood pressure (do not raise arms overhead)'
+    ],
+    category: 'Balancing',
+    level: 'Beginner',
+  },
+  {
+    id: 'bhujangasana',
+    name: 'Cobra Pose',
+    sanskritName: 'Bhujangasana',
+    description: 'A gentle backbend that strengthens the spine, chest, and abdomen.',
+    instructions: [
+      'Lie prone on the floor. Stretch your legs back, tops of the feet on the floor.', 
+      'Place your hands under your shoulders, fingers pointing forward.', 
+      'Hug your elbows into your body.', 
+      'Press the tops of your feet, thighs, and pubis firmly into the floor.', 
+      'On an inhalation, begin to straighten the arms to lift the chest off the floor, going only to the height at which you can maintain a connection through your pubis to your legs.', 
+      'Keep your shoulders relaxed and away from your ears.', 
+      'Gaze slightly upward or straight ahead, avoiding crunching the neck.', 
+      'Hold for 15 to 30 seconds, breathing easily. Exhale to release back to the floor.'
+    ],
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'cobra pose yoga',
+    benefits: [
+      'Strengthens the spine', 
+      'Stretches chest and lungs, shoulders, and abdomen', 
+      'Firms the buttocks', 
+      'Stimulates abdominal organs', 
+      'Helps relieve stress and fatigue', 
+      'Opens the heart and lungs', 
+      'Soothes sciatica', 
+      'Therapeutic for asthma'
+    ],
+    contraindications: [
+      'Back injury', 
+      'Carpal tunnel syndrome', 
+      'Headache', 
+      'Pregnancy'
+    ],
+    category: 'Prone',
     level: 'Beginner',
   }
 ];

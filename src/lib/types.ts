@@ -21,6 +21,7 @@ export interface PranayamaTechnique {
   description: string;
   instructions: string[];
   benefits: string[];
+  contraindications?: string[];
   durationOptions: number[]; // e.g., [3, 5, 10] minutes
   breathingPattern?: {
     inhale: number;
