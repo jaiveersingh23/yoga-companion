@@ -21,14 +21,13 @@ export default function AsanasPage() {
         {asanas.map((asana: Asana) => (
           <Card key={asana.id} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
             <CardHeader>
-              <div className="relative w-full h-48 mb-4 rounded-md overflow-hidden">
+              <div className="w-full h-48 mb-4 rounded-md overflow-hidden">
                 <Image
                   src={asana.imageUrl}
                   alt={asana.name}
-                  layout="fill"
-                  objectFit="cover"
-                  
-                  className="transition-transform duration-300 group-hover:scale-105"
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
               <CardTitle className="font-headline text-xl">{asana.name}</CardTitle>

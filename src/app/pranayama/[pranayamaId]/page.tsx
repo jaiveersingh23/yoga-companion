@@ -8,18 +8,18 @@ import PageHeader from '@/components/shared/PageHeader';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Play, Pause, RotateCcw, Info, CheckCircle2 } from 'lucide-react';
+import { Play, Pause, RotateCcw, Info, CheckCircle2, AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 interface PranayamaGuidePageProps {
-  params: Promise<{ // Updated to reflect that params is a Promise
+  params: Promise<{ 
     pranayamaId: string;
   }>;
 }
 
 export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) {
-  const resolvedParams = use(params); // Unwrap the params Promise
+  const resolvedParams = use(params); 
   const technique = getPranayamaById(resolvedParams.pranayamaId);
 
   const [duration, setDuration] = useState<number>(technique?.durationOptions[0] || 5);
@@ -30,8 +30,10 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
   const [roundCount, setRoundCount] = useState(0);
 
   useEffect(() => {
-    setTimeLeft(duration * 60);
-  }, [duration]);
+    if (technique) {
+      setTimeLeft(duration * 60);
+    }
+  }, [duration, technique]);
 
   useEffect(() => {
     if (!isRunning || !technique?.breathingPattern) {
@@ -81,7 +83,7 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
             }
             setTimeout(() => {
               setRoundCount(prev => prev + 1);
-              if (isRunning) cyclePhases(); // Loop if still running
+              if (isRunningRef.current) cyclePhases(); 
             }, holdExhale * 1000);
           }, exhale * 1000);
         }, holdInhale * 1000);
@@ -91,11 +93,15 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
     const phaseTimer = () => {
         setPhaseTimeLeft(prev => (prev <= 1 ? 0 : prev-1));
     }
+    
+    const isRunningRef = React.useRef(isRunning);
+    isRunningRef.current = isRunning;
+
 
     if (isRunning) {
       intervalId = setInterval(mainTimer, 1000);
       phaseIntervalId = setInterval(phaseTimer, 1000);
-      if(currentPhase === 'idle') { // Start new cycle
+      if(currentPhase === 'idle') { 
         setRoundCount(0);
         cyclePhases();
       }
@@ -105,10 +111,9 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
       clearInterval(intervalId);
       clearInterval(phaseIntervalId);
     };
-  }, [isRunning, technique, roundCount]);
+  }, [isRunning, technique, roundCount, currentPhase]);
   
   const toastComplete = () => {
-    // In a real app, use `useToast` here. For now, console log.
     console.log("Pranayama session complete!");
   };
 
@@ -148,7 +153,27 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
     }
   };
   
-  const circleSize = phaseTimeLeft > 0 ? (currentPhase === 'inhale' || currentPhase === 'holdInhale' ? 100 + phaseTimeLeft * 5 : 150 - phaseTimeLeft * 5) : 100;
+  const calculateCircleSize = () => {
+    if (!technique?.breathingPattern || !isRunning || phaseTimeLeft <= 0) return 100;
+    const { inhale, holdInhale = 0, exhale, holdExhale = 0 } = technique.breathingPattern;
+    let totalDurationCurrentPhase = 0;
+    if (currentPhase === 'inhale') totalDurationCurrentPhase = inhale;
+    else if (currentPhase === 'holdInhale') totalDurationCurrentPhase = holdInhale;
+    else if (currentPhase === 'exhale') totalDurationCurrentPhase = exhale;
+    else if (currentPhase === 'holdExhale') totalDurationCurrentPhase = holdExhale;
+
+    if (totalDurationCurrentPhase === 0) return 100;
+
+    const progress = (totalDurationCurrentPhase - phaseTimeLeft) / totalDurationCurrentPhase;
+
+    if (currentPhase === 'inhale' || currentPhase === 'holdInhale') {
+      return 100 + progress * 50; // Expand from 100 to 150
+    } else if (currentPhase === 'exhale' || currentPhase === 'holdExhale') {
+      return 150 - progress * 50; // Shrink from 150 to 100
+    }
+    return 100;
+  }
+  const circleSize = calculateCircleSize();
 
 
   return (
@@ -156,8 +181,14 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
       <PageHeader title={technique.name} description={technique.sanskritName} />
       
       {technique.imageUrl && (
-        <div className="relative w-full h-64 rounded-lg overflow-hidden mb-8 shadow-md">
-          <Image src={technique.imageUrl} alt={technique.name} layout="fill" objectFit="cover"  />
+        <div className="w-full h-64 rounded-lg overflow-hidden mb-8 shadow-md">
+          <Image 
+            src={technique.imageUrl} 
+            alt={technique.name} 
+            width={600}
+            height={400}
+            className="w-full h-full object-cover"
+          />
         </div>
       )}
 
@@ -226,6 +257,19 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
         </CardContent>
       </Card>
       
+      {technique.contraindications && technique.contraindications.length > 0 && (
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle className="font-headline text-xl flex items-center text-destructive"><AlertTriangle className="mr-2 h-5 w-5" /> Contraindications</CardTitle>
+          </CardHeader>
+          <CardContent>
+             <ul className="list-disc list-inside space-y-1 text-foreground/80">
+              {technique.contraindications.map((contra, index) => <li key={index}>{contra}</li>)}
+            </ul>
+          </CardContent>
+        </Card>
+      )}
+
       <Card>
         <CardHeader>
           <CardTitle className="font-headline text-xl flex items-center"><CheckCircle2 className="mr-2 h-5 w-5 text-green-500" /> Benefits</CardTitle>

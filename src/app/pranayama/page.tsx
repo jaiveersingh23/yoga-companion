@@ -20,14 +20,13 @@ export default function PranayamaPage() {
         {pranayamaTechniques.map((technique: PranayamaTechnique) => (
           <Card key={technique.id} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
              {technique.imageUrl && (
-              <div className="relative w-full h-48">
+              <div className="w-full h-48 overflow-hidden">
                 <Image
                   src={technique.imageUrl}
                   alt={technique.name}
-                  layout="fill"
-                  objectFit="cover"
-                  
-                  className="transition-transform duration-300 group-hover:scale-105"
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             )}

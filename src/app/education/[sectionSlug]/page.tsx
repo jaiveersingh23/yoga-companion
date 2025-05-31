@@ -36,12 +36,13 @@ export default function EducationSectionPage({ params }: EducationSectionPagePro
         icon={section.icon}
       />
        {section.image && (
-        <div className="relative w-full h-64 md:h-80 rounded-lg overflow-hidden mb-8 shadow-md">
+        <div className="w-full h-64 md:h-80 rounded-lg overflow-hidden mb-8 shadow-md">
           <Image 
             src={section.image} 
             alt={section.name} 
-            layout="fill" 
-            objectFit="cover"
+            width={800}
+            height={400}
+            className="w-full h-full object-cover"
             data-ai-hint={section.imageHint || 'yoga study'}
           />
         </div>
@@ -50,14 +51,14 @@ export default function EducationSectionPage({ params }: EducationSectionPagePro
         {section.topics.map((topic: EducationTopic) => (
           <Card key={topic.id} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
             {topic.imageUrl && (
-                <div className="relative w-full h-48">
+                <div className="w-full h-48 overflow-hidden">
                 <Image
                     src={topic.imageUrl}
                     alt={topic.title}
-                    layout="fill"
-                    objectFit="cover"
+                    width={600}
+                    height={400}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={topic.imageHint || 'yoga detail'}
-                    className="transition-transform duration-300 group-hover:scale-105"
                 />
                 </div>
             )}

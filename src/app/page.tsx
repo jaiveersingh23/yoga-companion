@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,7 +12,7 @@ const features = [
     description: 'Let our AI craft a yoga session tailored to your goals and experience level.',
     href: '/routine-generator',
     icon: Wand2,
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://source.unsplash.com/600x400/?yoga,meditation',
     imageHint: 'yoga meditation',
   },
   {
@@ -19,7 +20,7 @@ const features = [
     description: 'Discover a library of yoga poses with detailed instructions and benefits.',
     href: '/asanas',
     icon: StretchHorizontal,
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://source.unsplash.com/600x400/?yoga,pose',
     imageHint: 'yoga pose',
   },
   {
@@ -27,7 +28,7 @@ const features = [
     description: 'Follow guided breathing exercises to calm your mind and energize your body.',
     href: '/pranayama',
     icon: Wind,
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://source.unsplash.com/600x400/?breathing,nature',
     imageHint: 'breathing nature',
   },
   {
@@ -35,7 +36,7 @@ const features = [
     description: 'Learn about Mudras, Bandhas, Dhyana, and more to deepen your practice.',
     href: '/education',
     icon: BookOpen,
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://source.unsplash.com/600x400/?ancient,scroll',
     imageHint: 'ancient scroll',
   },
 ];
@@ -52,7 +53,7 @@ export default function HomePage() {
       <section className="w-full py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {features.map((feature) => (
-            <Card key={feature.title} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+            <Card key={feature.title} className="group overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
               <CardHeader className="pb-4">
                 <div className="flex items-center mb-3">
                   <feature.icon className="h-7 w-7 text-primary mr-3" />
@@ -61,12 +62,13 @@ export default function HomePage() {
                 <CardDescription>{feature.description}</CardDescription>
               </CardHeader>
               <CardContent className="flex-grow flex flex-col justify-between">
-                <div className="relative w-full h-48 rounded-md overflow-hidden mb-4">
+                <div className="w-full h-48 rounded-md overflow-hidden mb-4">
                   <Image 
                     src={feature.image} 
                     alt={feature.title} 
-                    layout="fill" 
-                    objectFit="cover"
+                    width={600}
+                    height={400}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={feature.imageHint}
                   />
                 </div>

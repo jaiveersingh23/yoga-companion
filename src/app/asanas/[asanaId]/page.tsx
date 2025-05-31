@@ -36,13 +36,13 @@ export default function AsanaDetailPage({ params }: AsanaDetailPageProps) {
       <PageHeader title={asana.name} description={asana.sanskritName} />
 
       <Card className="mb-8 shadow-lg overflow-hidden">
-        <div className="relative w-full h-64 md:h-96">
+        <div className="w-full h-64 md:h-96 overflow-hidden">
           <Image
             src={asana.imageUrl}
             alt={asana.name}
-            layout="fill"
-            objectFit="cover"
-            
+            width={600}
+            height={400}
+            className="w-full h-full object-cover"
           />
         </div>
         <CardContent className="p-6">

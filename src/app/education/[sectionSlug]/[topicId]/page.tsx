@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { getEducationTopicById, getEducationSectionBySlug, educationSections } from '@/lib/educationData';
@@ -5,7 +6,7 @@ import type { EducationTopic, EducationSection } from '@/lib/types';
 import PageHeader from '@/components/shared/PageHeader';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { CheckCircle2, AlertTriangle } from 'lucide-react'; // Using AlertTriangle for practice tips for visual diversity
+import { CheckCircle2, AlertTriangle } from 'lucide-react'; 
 
 interface EducationTopicPageProps {
   params: {
@@ -35,18 +36,18 @@ export default function EducationTopicPage({ params }: EducationTopicPageProps) 
 
       <Card className="shadow-lg">
         {topic.imageUrl && (
-          <div className="relative w-full h-64 md:h-80 rounded-t-lg overflow-hidden">
+          <div className="w-full h-64 md:h-80 rounded-t-lg overflow-hidden">
             <Image
               src={topic.imageUrl}
               alt={topic.title}
-              layout="fill"
-              objectFit="cover"
+              width={600}
+              height={400}
+              className="w-full h-full object-cover"
               data-ai-hint={topic.imageHint || 'yoga knowledge'}
             />
           </div>
         )}
         <CardHeader className={!topic.imageUrl ? "pt-6" : ""}>
-          {/* Title is already in PageHeader, keeping this minimal */}
           <p className="text-muted-foreground text-lg">{topic.introduction}</p>
         </CardHeader>
         <CardContent className="prose dark:prose-invert max-w-none text-foreground/90">

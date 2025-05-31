@@ -20,14 +20,14 @@ export default function EducationPage() {
         {educationSections.map((section: EducationSection) => (
           <Card key={section.slug} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
             {section.image && (
-                <div className="relative w-full h-48">
+                <div className="w-full h-48 overflow-hidden">
                 <Image
                     src={section.image}
                     alt={section.name}
-                    layout="fill"
-                    objectFit="cover"
+                    width={800} 
+                    height={400}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={section.imageHint || 'yoga philosophy'}
-                    className="transition-transform duration-300 group-hover:scale-105"
                 />
                 </div>
             )}
@@ -39,7 +39,6 @@ export default function EducationPage() {
               <CardDescription className="text-sm line-clamp-3">{section.description}</CardDescription>
             </CardHeader>
             <CardContent className="flex-grow">
-              {/* Additional content preview can go here if needed */}
             </CardContent>
             <CardFooter>
               <Button asChild variant="link" className="text-primary hover:text-primary/80 p-0">
