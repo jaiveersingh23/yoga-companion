@@ -1,13 +1,12 @@
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { asanas } from '@/lib/asanaData';
 import type { Asana } from '@/lib/types';
 import PageHeader from '@/components/shared/PageHeader';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { StretchHorizontal, ArrowRight, Youtube } from 'lucide-react';
+import { StretchHorizontal, ArrowRight } from 'lucide-react';
 
 export default function AsanasPage() {
   return (
@@ -20,22 +19,7 @@ export default function AsanasPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {asanas.map((asana: Asana) => (
           <Card key={asana.id} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <CardHeader>
-              <div className="w-full h-48 mb-4 rounded-md overflow-hidden relative">
-                <Image
-                  src={asana.imageUrl}
-                  alt={asana.name}
-                  width={600}
-                  height={400}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  unoptimized
-                />
-                {asana.videoUrl && (
-                  <div className="absolute top-2 right-2 bg-black/50 p-1 rounded-full">
-                    <Youtube className="h-5 w-5 text-red-500" />
-                  </div>
-                )}
-              </div>
+            <CardHeader className="pt-6">
               <CardTitle className="font-headline text-xl">{asana.name}</CardTitle>
               <CardDescription className="text-sm text-muted-foreground">{asana.sanskritName}</CardDescription>
             </CardHeader>

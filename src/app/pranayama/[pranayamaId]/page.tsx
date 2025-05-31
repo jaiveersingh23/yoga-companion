@@ -8,12 +8,9 @@ import PageHeader from '@/components/shared/PageHeader';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Play, Pause, RotateCcw, Info, CheckCircle2, AlertTriangle, Youtube } from 'lucide-react';
+import { Play, Pause, RotateCcw, Info, CheckCircle2, AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
-import { getYouTubeVideoId } from '@/lib/utils';
-
 
 interface PranayamaGuidePageProps {
   params: Promise<{ 
@@ -32,8 +29,6 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
   const [currentPhase, setCurrentPhase] = useState<'inhale' | 'holdInhale' | 'exhale' | 'holdExhale' | 'idle'>('idle');
   const [phaseTimeLeft, setPhaseTimeLeft] = useState(0);
   const [roundCount, setRoundCount] = useState(0);
-
-  const videoId = technique?.videoUrl ? getYouTubeVideoId(technique.videoUrl) : null;
 
   useEffect(() => {
     if (technique) {
@@ -210,45 +205,6 @@ export default function PranayamaGuidePage({ params }: PranayamaGuidePageProps) 
     <div className="max-w-3xl mx-auto">
       <PageHeader title={technique.name} description={technique.sanskritName} />
       
-      <div className="mb-8">
-        {videoId ? (
-            <div className="w-full aspect-video rounded-lg overflow-hidden shadow-md">
-                <iframe
-                    width="100%"
-                    height="100%"
-                    src={`https://www.youtube.com/embed/${videoId}`}
-                    title={`YouTube video player for ${technique.name}`}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    className="w-full h-full"
-                ></iframe>
-            </div>
-        ) : technique.imageUrl ? (
-            <div className="w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
-                <Image 
-                    src={technique.imageUrl} 
-                    alt={technique.name} 
-                    width={600}
-                    height={400}
-                    className="w-full h-full object-cover"
-                    data-ai-hint={technique.imageHint}
-                />
-            </div>
-        ) : null}
-      </div>
-      
-      {technique.videoUrl && (
-        <div className="mb-6 text-center">
-          <Button asChild variant="outline" className="bg-red-600 hover:bg-red-700 text-white">
-            <a href={technique.videoUrl} target="_blank" rel="noopener noreferrer">
-              <Youtube className="mr-2 h-5 w-5" /> Watch on YouTube
-            </a>
-          </Button>
-        </div>
-      )}
-
-
       <Card className="mb-8 shadow-lg">
         <CardHeader>
           <CardTitle className="font-headline text-xl">Guided Session</CardTitle>

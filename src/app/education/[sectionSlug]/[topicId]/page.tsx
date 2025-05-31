@@ -1,6 +1,5 @@
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { getEducationTopicById, getEducationSectionBySlug, educationSections } from '@/lib/educationData';
 import type { EducationTopic, EducationSection } from '@/lib/types';
 import PageHeader from '@/components/shared/PageHeader';
@@ -35,20 +34,7 @@ export default function EducationTopicPage({ params }: EducationTopicPageProps) 
       <PageHeader title={topic.title} description={section.name} icon={section.icon} />
 
       <Card className="shadow-lg">
-        {topic.imageUrl && (
-          <div className="w-full h-64 md:h-80 rounded-t-lg overflow-hidden">
-            <Image
-              src={topic.imageUrl}
-              alt={topic.title}
-              width={600}
-              height={400}
-              className="w-full h-full object-cover"
-              data-ai-hint={topic.imageHint || 'yoga knowledge'}
-              unoptimized={topic.imageUrl.startsWith('https://placehold.co') ? undefined : true}
-            />
-          </div>
-        )}
-        <CardHeader className={!topic.imageUrl ? "pt-6" : ""}>
+        <CardHeader className="pt-6">
           <p className="text-muted-foreground text-lg">{topic.introduction}</p>
         </CardHeader>
         <CardContent className="prose dark:prose-invert max-w-none text-foreground/90">
@@ -101,5 +87,3 @@ export async function generateStaticParams() {
   });
   return params;
 }
-
-    

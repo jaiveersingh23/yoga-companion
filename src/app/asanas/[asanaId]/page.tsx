@@ -1,14 +1,12 @@
 
-import Image from 'next/image';
 import { getAsanaById } from '@/lib/asanaData';
 import type { Asana } from '@/lib/types';
 import PageHeader from '@/components/shared/PageHeader';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { AlertCircle, CheckCircle2, Youtube } from 'lucide-react';
+import { AlertCircle, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
-import { getYouTubeVideoId } from '@/lib/utils';
 
 interface AsanaDetailPageProps {
   params: {
@@ -31,38 +29,11 @@ export default function AsanaDetailPage({ params }: AsanaDetailPageProps) {
     );
   }
 
-  const videoId = asana.videoUrl ? getYouTubeVideoId(asana.videoUrl) : null;
-
   return (
     <div className="max-w-4xl mx-auto">
       <PageHeader title={asana.name} description={asana.sanskritName} />
 
       <Card className="mb-8 shadow-lg overflow-hidden">
-        {videoId ? (
-          <div className="w-full aspect-video rounded-t-lg overflow-hidden">
-            <iframe
-              width="100%"
-              height="100%"
-              src={`https://www.youtube.com/embed/${videoId}`}
-              title={`YouTube video player for ${asana.name}`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="w-full h-full"
-            ></iframe>
-          </div>
-        ) : asana.imageUrl ? (
-          <div className="w-full h-64 md:h-96 overflow-hidden">
-            <Image
-              src={asana.imageUrl}
-              alt={asana.name}
-              width={600}
-              height={400}
-              className="w-full h-full object-cover"
-              data-ai-hint={asana.imageHint}
-            />
-          </div>
-        ) : null}
         <CardContent className="p-6">
           <p className="text-lg text-muted-foreground mb-6">{asana.description}</p>
           
@@ -70,16 +41,6 @@ export default function AsanaDetailPage({ params }: AsanaDetailPageProps) {
             <Badge variant="default" className="text-sm px-3 py-1">{asana.level}</Badge>
             <Badge variant="secondary" className="text-sm px-3 py-1">{asana.category}</Badge>
           </div>
-
-          {asana.videoUrl && (
-            <div className="mb-6">
-              <Button asChild variant="outline" className="bg-red-600 hover:bg-red-700 text-white">
-                <a href={asana.videoUrl} target="_blank" rel="noopener noreferrer">
-                  <Youtube className="mr-2 h-5 w-5" /> Watch on YouTube
-                </a>
-              </Button>
-            </div>
-          )}
         </CardContent>
       </Card>
 

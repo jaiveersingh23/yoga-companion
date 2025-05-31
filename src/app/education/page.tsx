@@ -1,6 +1,5 @@
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { educationSections } from '@/lib/educationData';
 import type { EducationSection } from '@/lib/types';
 import PageHeader from '@/components/shared/PageHeader';
@@ -19,20 +18,7 @@ export default function EducationPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {educationSections.map((section: EducationSection) => (
           <Card key={section.slug} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-            {section.image && (
-                <div className="w-full h-48 overflow-hidden">
-                <Image
-                    src={section.image}
-                    alt={section.name}
-                    width={800} 
-                    height={400}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    data-ai-hint={section.imageHint || 'yoga philosophy'}
-                    unoptimized={section.image.startsWith('https://placehold.co') ? undefined : true}
-                />
-                </div>
-            )}
-            <CardHeader className={!section.image ? "pt-6" : ""}>
+            <CardHeader className="pt-6">
               <div className="flex items-center mb-2">
                 {section.icon && <section.icon className="h-6 w-6 text-primary mr-2" />}
                 <CardTitle className="font-headline text-xl">{section.name}</CardTitle>
@@ -54,5 +40,3 @@ export default function EducationPage() {
     </div>
   );
 }
-
-    

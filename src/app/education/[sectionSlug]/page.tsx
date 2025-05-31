@@ -1,6 +1,5 @@
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { getEducationSectionBySlug, educationSections } from '@/lib/educationData';
 import type { EducationSection, EducationTopic } from '@/lib/types';
 import PageHeader from '@/components/shared/PageHeader';
@@ -35,36 +34,10 @@ export default function EducationSectionPage({ params }: EducationSectionPagePro
         description={section.description}
         icon={section.icon}
       />
-       {section.image && (
-        <div className="w-full h-64 md:h-80 rounded-lg overflow-hidden mb-8 shadow-md">
-          <Image 
-            src={section.image} 
-            alt={section.name} 
-            width={800}
-            height={400}
-            className="w-full h-full object-cover"
-            data-ai-hint={section.imageHint || 'yoga study'}
-            unoptimized={section.image.startsWith('https://placehold.co') ? undefined : true}
-          />
-        </div>
-      )}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {section.topics.map((topic: EducationTopic) => (
           <Card key={topic.id} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-            {topic.imageUrl && (
-                <div className="w-full h-48 overflow-hidden">
-                <Image
-                    src={topic.imageUrl}
-                    alt={topic.title}
-                    width={600}
-                    height={400}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    data-ai-hint={topic.imageHint || 'yoga detail'}
-                    unoptimized={topic.imageUrl.startsWith('https://placehold.co') ? undefined : true}
-                />
-                </div>
-            )}
-            <CardHeader className={!topic.imageUrl ? "pt-6" : ""}>
+            <CardHeader className="pt-6">
               <CardTitle className="font-headline text-xl">{topic.title}</CardTitle>
             </CardHeader>
             <CardContent className="flex-grow">
@@ -94,5 +67,3 @@ export async function generateStaticParams() {
     sectionSlug: section.slug,
   }));
 }
-
-    
