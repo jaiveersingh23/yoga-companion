@@ -20,7 +20,7 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     benefits: ['Calms the mind', 'Reduces anxiety and stress', 'Improves focus and concentration', 'Balances hormones', 'Supports respiratory function', 'Balances the left and right hemispheres of the brain'],
     durationOptions: [3, 5, 10],
     breathingPattern: { inhale: 4, exhale: 6, rounds: 10 }, // Example: 4 count inhale, 6 count exhale
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://source.unsplash.com/600x400/?nostril,breathing',
     imageHint: 'nostril breathing',
   },
   {
@@ -39,7 +39,7 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     ],
     benefits: ['Calms the nervous system', 'Builds internal heat', 'Increases oxygenation', 'Improves focus during asana practice', 'Releases tension'],
     durationOptions: [3, 5, 10],
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://source.unsplash.com/600x400/?ujjayi,breath',
     imageHint: 'ujjayi breath',
   },
    {
@@ -58,7 +58,7 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     ],
     benefits: ['Instantly calms the mind', 'Relieves stress, anxiety, and anger', 'Reduces blood pressure', 'Improves concentration and memory', 'Helpful for insomnia'],
     durationOptions: [3, 5, 7],
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://source.unsplash.com/600x400/?bee,breath',
     imageHint: 'bee breath',
   },
   {
@@ -95,7 +95,7 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     ],
     durationOptions: [2, 3, 5], // Duration per session
     breathingPattern: { exhale: 1, rounds: 30 }, // Represents rapid exhalations, passive inhale not counted here.
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://source.unsplash.com/600x400/?skull,shining',
     imageHint: 'skull shining',
   },
   {
@@ -127,7 +127,7 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     ],
     durationOptions: [3, 5, 7],
     breathingPattern: { inhale: 4, exhale: 6, rounds: 10 },
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://source.unsplash.com/600x400/?sitali,breath',
     imageHint: 'sitali breath',
   }
 ];
