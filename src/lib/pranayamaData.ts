@@ -21,9 +21,6 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     contraindications: [],
     durationOptions: [3, 5, 10],
     breathingPattern: { inhale: 4, exhale: 6, rounds: 10 },
-    imageUrl: `https://source.unsplash.com/featured/600x400/?nostril,breathing`,
-    imageHint: 'nostril breathing',
-    videoUrl: 'https://www.youtube.com/watch?v=8VwufJrUhic',
   },
   {
     id: 'ujjayi',
@@ -42,8 +39,6 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     benefits: ['Calms the nervous system', 'Builds internal heat', 'Increases oxygenation', 'Improves focus during asana practice', 'Releases tension'],
     contraindications: [],
     durationOptions: [3, 5, 10],
-    imageUrl: `https://source.unsplash.com/featured/600x400/?ujjayi,breath`,
-    imageHint: 'ujjayi breath',
   },
    {
     id: 'bhramari',
@@ -62,9 +57,6 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     benefits: ['Instantly calms the mind', 'Relieves stress, anxiety, and anger', 'Reduces blood pressure', 'Improves concentration and memory', 'Helpful for insomnia'],
     contraindications: [],
     durationOptions: [3, 5, 7],
-    imageUrl: `https://source.unsplash.com/featured/600x400/?bee,sound`, // Changed hint
-    imageHint: 'bee sound',
-    videoUrl: 'https://www.youtube.com/watch?v=j47EpmB-AIM',
   },
   {
     id: 'kapalabhati',
@@ -99,9 +91,7 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
         'During menstruation (practice mildly if at all)'
     ],
     durationOptions: [2, 3, 5],
-    breathingPattern: { exhale: 1, rounds: 30 },
-    imageUrl: `https://source.unsplash.com/featured/600x400/?breath,energy`, // Changed hint
-    imageHint: 'breath energy',
+    breathingPattern: { exhale: 1, rounds: 30 }, // Inhale is passive
   },
   {
     id: 'sitali',
@@ -132,8 +122,64 @@ export const pranayamaTechniques: PranayamaTechnique[] = [
     ],
     durationOptions: [3, 5, 7],
     breathingPattern: { inhale: 4, exhale: 6, rounds: 10 },
-    imageUrl: `https://source.unsplash.com/featured/600x400/?cool,breeze`, // Changed hint
-    imageHint: 'cool breeze',
+  },
+  {
+    id: 'sheetkari',
+    name: 'Hissing Breath',
+    sanskritName: 'Sheetkari Pranayama',
+    description: 'A cooling breath similar to Sitali, practiced by inhaling through clenched teeth. It is an alternative for those who cannot curl their tongue.',
+    instructions: [
+      'Sit in a comfortable meditation posture with your spine erect.',
+      'Gently close your eyes.',
+      'Bring your upper and lower teeth lightly together.',
+      'Separate your lips so your teeth are exposed.',
+      'Inhale slowly and deeply through the gaps in your teeth, allowing the air to create a hissing sound ("Sheet" sound).',
+      'Feel the cool air entering your mouth.',
+      'After a full inhalation, close your mouth and exhale slowly through both nostrils.',
+      'This completes one round. Practice 5-10 rounds.'
+    ],
+    benefits: [
+      'Cools the body and mind.',
+      'Reduces anger, anxiety, and stress.',
+      'Can alleviate thirst and hunger pangs.',
+      'May help reduce fever.',
+      'Promotes tranquility.'
+    ],
+    contraindications: [
+      'Low blood pressure.',
+      'Sensitive teeth or gums.',
+      'Asthma or bronchitis (cold air might irritate).',
+      'Chronic constipation.',
+      'Not recommended in cold weather or if you have a cold or flu.'
+    ],
+    durationOptions: [3, 5, 7],
+    breathingPattern: { inhale: 4, exhale: 6, rounds: 10 },
+  },
+  {
+    id: 'dirga',
+    name: 'Three-Part Breath',
+    sanskritName: 'Dirga Pranayama',
+    description: 'A foundational breathing technique that encourages full, deep breaths by dividing the breath into three parts: abdomen, rib cage, and chest.',
+    instructions: [
+      'Sit comfortably or lie down on your back.',
+      'Relax your body and close your eyes.',
+      'Place one hand on your abdomen and the other on your chest to feel the movement.',
+      'Exhale completely.',
+      'Inhale slowly and deeply: first, allow your abdomen to expand (diaphragmatic breath).',
+      'Continue inhaling, allowing your rib cage to expand sideways.',
+      'Finally, allow your upper chest to fill and rise.',
+      'Exhale slowly and completely, reversing the order: first, release the air from your chest, then your rib cage, and finally, draw your abdomen gently in to expel the remaining air.',
+      'This is one round. Continue for 5-10 minutes.'
+    ],
+    benefits: [
+      'Calms the nervous system and reduces stress.',
+      'Increases lung capacity and oxygen intake.',
+      'Improves awareness of the breath and body.',
+      'Promotes relaxation and mental clarity.',
+      'Can help with insomnia.'
+    ],
+    contraindications: [],
+    durationOptions: [5, 10, 15],
   }
 ];
 
