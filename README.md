@@ -113,8 +113,3 @@ A brief overview of the key directories:
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a pull request or open an issue.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE.md file (if one exists) for details.
-(You might want to add a LICENSE file if you intend to make this open source).
